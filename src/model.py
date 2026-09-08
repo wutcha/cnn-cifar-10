@@ -2,7 +2,7 @@ from torch import nn
 
 class CNN(nn.Module):
     def __init__(self):
-        super().__init()
+        super().__init__()
         self.stack = nn.Sequential(
             nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, padding=1, stride=1),
             nn.ReLU(),
