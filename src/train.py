@@ -13,7 +13,7 @@ epochs=10
 
 loss_func = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=learning_rate) # stochastic gradient desc
-#schedular = ExponentialLR(optimizer, gamma=0.9) # learning rate schedular
+schedular = ExponentialLR(optimizer, gamma=0.9) # learning rate schedular
 
 def train_loop(dataloader, model, loss_f, optimizer):
     size = len(dataloader.dataset)
@@ -32,7 +32,7 @@ def train_loop(dataloader, model, loss_f, optimizer):
         if batch%100==0:
             loss, current = loss.item(), batch * batch_size + len(x)
             print(f"loss: {loss:>7f} [{current:>5d}/{size:>5d}]")
-    #schedular.step()
+    schedular.step()
 
 def test_loop(dataloader, model, loss_f):
     model.eval()

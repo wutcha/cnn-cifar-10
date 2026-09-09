@@ -53,8 +53,14 @@ Base test accuracy: ~.7672
 
 Ending here, but I know there's more I could try.
 
+## E4: Other architecture changes
 
+Going to try a few things
 
+| Change | Accuracy |
+|---|---|
+|Batch norm| .8002 |
+|much larger arch: 3 -> 32x32x32 -> 64x16x16 -> 128x16x16 -> 256x8x8 -> 512 -> 64 -> 10| .8125 | 
 
-
- 
+Best result?
+.8178
