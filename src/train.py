@@ -7,13 +7,13 @@ import matplotlib.pyplot as plt
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = CNN().to(device)
-learning_rate = 0.1
+learning_rate = 0.001
 batch_size = 64
 epochs=10
 
 loss_func = nn.CrossEntropyLoss()
-optimizer = optim.SGD(model.parameters(), lr=learning_rate) # stochastic gradient desc
-schedular = ExponentialLR(optimizer, gamma=0.9) # learning rate schedular
+optimizer = optim.Adam(model.parameters(), lr=learning_rate) # stochastic gradient desc
+#schedular = ExponentialLR(optimizer, gamma=0.9) # learning rate schedular
 
 def train_loop(dataloader, model, loss_f, optimizer):
     size = len(dataloader.dataset)
@@ -32,7 +32,7 @@ def train_loop(dataloader, model, loss_f, optimizer):
         if batch%100==0:
             loss, current = loss.item(), batch * batch_size + len(x)
             print(f"loss: {loss:>7f} [{current:>5d}/{size:>5d}]")
-    schedular.step()
+    #schedular.step()
 
 def test_loop(dataloader, model, loss_f):
     model.eval()
