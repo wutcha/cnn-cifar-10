@@ -9,7 +9,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = CNN().to(device)
 learning_rate = 0.001
 batch_size = 64
-epochs=10
+epochs=25
 
 loss_func = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=learning_rate) # stochastic gradient desc

@@ -63,4 +63,4 @@ Going to try a few things
 |much larger arch: 3 -> 32x32x32 -> 64x16x16 -> 128x16x16 -> 256x8x8 -> 512 -> 64 -> 10| .8125 | 
 
 Best result?
-.8178
+.8603
