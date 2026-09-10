@@ -3,7 +3,7 @@
 ## Overview
 I wanted to learn CNN architecture and convolutional layers while also learning PyTorch. Building upon my previous experience making a neural net from scratch in numpy arrays, PyTorch seemed important to learn. I experimented a lot to achieve this test accuracy.  
   
-I learned a lot of different things in PyTorch, CNNs, and the whole ML pipeline.
+I learned a lot of different PyTorch methods, things about CNNs, and the entire ML pipeline.
 
 ## My Architecture
 
@@ -20,7 +20,7 @@ I learned a lot of different things in PyTorch, CNNs, and the whole ML pipeline.
  - Learning Rate scheduler
 
 
-This project gave me a better understanding of how CNN architecture works and affects model capacity and computational cost. I had to figure out how to use my laptop's GPU, a bunch of methods of improving upon my basic CNN, and many small details to evaluate my model beyond test accuracy.
+This project gave me a better understanding of how CNN architecture works and affects model capacity and computational cost. I had to figure out how to use my laptop's GPU, a bunch of methods to improve my basic CNN, and how to evaluate my model beyond test accuracy.
 
  ### My actual arch:  
 
@@ -46,13 +46,13 @@ There were a lot of parameters here: **16,384 * 512 in the first linear layer al
 
 My [experiments.md](./experiments.md) contains full experiment logs.
 
-- **Wider channels helped a lot.** Going from `32→64→128` to `64→128→256` gave the biggest single accuracy jump (~0.72 -> ~0.78+). I noticed they also raised computational cost significantly.
-- **BatchNorm** smoothened training a lot, improved curves from jagged/spiky to stable, and gave a solid accuracy bump on its own().
-- **Adam converged much faster**, hitting ~72% by epoch 3 vs SGD needing far longer. I didn't extensively fine-tune SGD, though.
-- **Data augmentation helped.** Random flip + resized crop + rotation stacked additively and gave decently consistent gains.
-- **Lots of run-to-run variance.**
-- **Often, more epochs lead to greater overfitting.**
-- **I tested different linear layers early**, but I would go back to continue testing now to reduce computational cost.
+- Wider channels helped a lot. Going from `32→64→128` to `64→128→256` gave the biggest single accuracy jump (~0.72 -> ~0.78+). I noticed they also raised computational cost significantly.
+- BatchNorm smoothened training a lot, improved curves from jagged/spiky to stable, and gave a solid accuracy bump on its own.
+- Adam converged much faster than SGD, hitting ~72% by epoch 3 vs SGD needing much longer. Both finished with similar accuracies. I didn't extensively fine-tune SGD, though.
+- Data augmentation helped. Random flip + resized crop + rotation stacked additively and gave decently consistent gains.
+- With 10 epochs, there was lots of run-to-run variance.
+- More epochs led to greater overfitting with SGD, but fine-tuning gamma and initial learning rate might've helped there.
+- I tested different linear layers early, but I would go back to continue testing now to reduce computational cost.
 
 ## Results
 
